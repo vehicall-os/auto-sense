@@ -4,12 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../storage/secure_storage.dart';
 import '../../features/auth/presentation/splash_screen.dart';
 import '../../features/auth/presentation/login_screen.dart';
+import '../../features/auth/presentation/vehicle_registration_screen.dart';
 import '../../features/dashboard/presentation/vehicle_dashboard_screen.dart';
 import '../../features/driver/presentation/driver_pulse_screen.dart';
 import '../../features/fleet/presentation/trip_log_screen.dart';
 import '../../features/fleet/presentation/devices_screen.dart';
 import '../../features/fleet/presentation/vehicle_location_screen.dart';
 import '../../features/fleet/presentation/security_control_screen.dart';
+import '../../features/maintenance/presentation/maintenance_history_screen.dart';
+import '../../features/dashboard/presentation/performance_analytics_screen.dart';
 
 // Router Provider
 final routerProvider = Provider<GoRouter>((ref) {
@@ -23,6 +26,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/login',
         builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/onboarding/vehicle',
+        builder: (context, state) => const VehicleRegistrationScreen(),
       ),
       GoRoute(
         path: '/driver/dashboard',
@@ -47,6 +54,22 @@ final routerProvider = Provider<GoRouter>((ref) {
        GoRoute(
         path: '/fleet/security',
         builder: (context, state) => const SecurityControlScreen(),
+      ),
+      GoRoute(
+        path: '/maintenance/history',
+        builder: (context, state) => const MaintenanceHistoryScreen(),
+      ),
+       GoRoute(
+        path: '/dashboard/analytics',
+        builder: (context, state) => const PerformanceAnalyticsScreen(),
+      ),
+      GoRoute(
+        path: '/appointment',
+        builder: (context, state) => const BookAppointmentScreen(),
+      ),
+      GoRoute(
+        path: '/recalls',
+        builder: (context, state) => const SafetyRecallsScreen(),
       ),
     ],
     redirect: (context, state) async {
